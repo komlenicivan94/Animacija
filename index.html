@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Animacija</title>
+        <style>
+            body {
+                background-color: #050210;
+            }
+            #div-1 {
+                width: 300px;
+                height: 300px;
+                margin: 150px auto;
+                border-radius: 50%;
+                background: linear-gradient(#fb5dad, #55fb9f, #b97aff);
+                position: relative;
+                animation: spin 1s infinite linear;
+            }
+            #div-1::before {
+                content: '';
+                background: linear-gradient(#fb5dad, #55fb9f, #b97aff);
+                height: 340px;
+                width: 340px;
+                border-radius: 50%;
+                position: absolute;
+                top: -20px;
+                left: -20px;
+                filter: blur(50px) opacity(0.6);
+            }
+            #div-2 {
+                width: 260px;
+                height: 260px;
+                border-radius: 50%;
+                background-color: #0f0924;
+                position: absolute;
+                top: 20px;
+                left: 20px;
+            }
+            #div-2::after {
+                content: '';
+                width: 250px;
+                height: 250px;
+                border-radius: 50%;
+                background-color: #140c2f;
+                position: absolute;
+                top: 5px;
+                left: 5px;
+                animation: centar 1.3s infinite ease-out;
+            }
+            @keyframes centar {
+                0% {
+                    transform: scale(0);
+                }
+                100% {
+                    transform: scale(1);
+                }
+            }
+            @keyframes spin {
+                0% {
+                    transform: rotateZ(0deg);
+                }
+                100% {
+                    transform: rotateZ(359deg);
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div id="div-1">
+            <div id="div-2"></div>
+        </div>
+    </body>
+</html>
